@@ -3,8 +3,10 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import * as Icon from "react-native-feather";
+import { featured } from "../constants";
 import Categolies from "../components/categolies";
 import { themecolors } from "../theme";
+import FeatureRow from "../components/featureRow";
 
 export default function HomeScreen() {
   return (
@@ -36,6 +38,21 @@ export default function HomeScreen() {
         {/* Categolies of different components  */}
 
         <Categolies />
+
+        {/* Feature Home  */}
+        <View className="mt-5">
+          {[featured, featured, featured].map((el, index) => {
+            return (
+              <FeatureRow
+                key={el.id}
+                title={el.title}
+                restaurants={el.restaurants}
+                decription={el.description}
+                
+              />
+            );
+          })}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

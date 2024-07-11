@@ -1,7 +1,8 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Categolie } from "../constants/index";
 export default function Categolies() {
+  const [activeCategolies, setActiveCategory] = useState(null);
   return (
     // All categolies s
     <View className="mt-4">
@@ -13,12 +14,20 @@ export default function Categolies() {
         contentContainerStyle={{ paddingHorizontal: 15 }}
       >
         {Categolie.map((el, index) => {
+          let isActive = el.id === activeCategolies;
+          let btnclass = isActive ? "bg-gray-600" : "bg-gray-200";
+          let textclass = isActive
+            ? "font-semibold text-gray-800"
+            : "text-gray-500";
           return (
             <View key={index} className="flex justify-center items-center mr-6">
-              <TouchableOpacity className="p-1 rounded-full shadow bg-gray-200">
+              <TouchableOpacity
+                onPress={() => setActiveCategory(el.id)}
+                className={`p-1 rounded-full shadow bg-gray-200  ${btnclass}`}
+              >
                 <Image style={{ width: 45, height: 45 }} source={el.image} />
               </TouchableOpacity>
-              <Text>{el.name}</Text>
+              <Text className={`text-sm  ${textclass}`}>{el.name}</Text>
             </View>
           );
         })}
