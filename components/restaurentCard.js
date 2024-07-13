@@ -3,30 +3,31 @@ import React from "react";
 import * as Icon from "react-native-feather";
 import { themecolors } from "../theme";
 
-const restaurentCard = ({ el }) => {
-  console.log(el, "------------------------ items");
+const restaurentCard = ({ items }) => {
   return (
     <TouchableWithoutFeedback>
       <View
         style={{ shadowColor: themecolors.bgColor(0.2), shadowRadius: 7 }}
         className="mr-6 bg-white rounded-3xl shadow-lg"
       >
-        <Image className="h-36 w-64 rounded-l-3xl" source={el.image} />
+        <Image className="h-36 w-64 rounded-l-3xl" source={items.image} />
         <View className="px-3 pb-4 space-y-2">
-          <Text className="text-lg font-bold pt-2">{el.name}</Text>
+          <Text className="text-lg font-bold pt-2">{items.name}</Text>
           <View className="flex-row items-center space-x-1">
-            <Image source={require("../assets/images/star.png")} />
+            <Image source={require("../assets/star.png")} className="w-4 h-4" />
             <Text className="text-xs">
-              <Text className="text-green-700">{el.stars}</Text>
+              <Text className="text-green-700">{items.stars}</Text>
               <Text className="text-gray-700">
-                ({el.reviews} reviews) .{" "}
-                <Text className="font-semibold">{el.type} </Text>
+                ({items.reviews} reviews) .{" "}
+                <Text className="font-semibold">{items.type} </Text>
               </Text>
             </Text>
           </View>
           <View className="flex-row items-center space-x-1">
             <Icon.MapPin color="gray" width={15} height={15} />
-            <Text className="text-gray-700 text-xs">NearBy . {el.address}</Text>
+            <Text className="text-gray-700 text-xs">
+              NearBy . {items.address}
+            </Text>
           </View>
         </View>
       </View>
