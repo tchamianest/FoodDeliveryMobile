@@ -1,6 +1,6 @@
 export const featured = {
   id: 1,
-  title: "dumy categories structure",
+  title: "Hot Fish Dog",
   description: "Food Categories",
   restaurants: [
     {
