@@ -6,6 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { themecolors } from "../theme";
 import Dishesh from "../components/dishesh";
 import CartIcon from "../components/cartIcon";
+import { StatusBar } from "expo-status-bar";
 
 export default function RestaurantScreen() {
   const { params } = useRoute();
@@ -15,6 +16,7 @@ export default function RestaurantScreen() {
   return (
     <View>
       <CartIcon />
+      <StatusBar style="light" />
       <ScrollView>
         <View className="relative">
           <Image source={item.image} className="h-72 w-full" />
