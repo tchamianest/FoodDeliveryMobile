@@ -5,7 +5,7 @@ export const featured = {
   restaurants: [
     {
       id: 22,
-      name: "mumys coffe",
+      name: "mumys coffee",
       location: "kigali Rwanda",
       description: "hot meat and Pizza",
       image: require(`../assets/images/dishes/haha.jpeg`),
